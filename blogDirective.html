@@ -1,0 +1,31 @@
+<div class="row" infinite-scroll="addMoreItems()" infinite-scroll-distance="3">
+  <div class="card-wrapper" flex-xs flex-gt-xs="50" layout="column" ng-repeat="blogItem in blogs">
+    <md-card class="_md">
+      <img class="md-card-image" ng-src="http://nytimes.com/{{blogItem.multimedia[0].url}}" on-error-src="../thought-image-url.png" ng-if="blogItem.multimedia.length > 0"/>
+      <img class="md-card-image" ng-src="../thought-image-url.png" ng-if="blogItem.multimedia.length == 0"/>
+      <md-card-title>
+        <md-card-title-text>
+          <span>
+            <h2>{{blogItem.headline.main}}</h2>
+          </span>
+          <span></span>
+        </md-card-title-text>
+      </md-card-title>
+      <md-card-actions layout="row" layout-align="start center">
+        <md-button href={{blogItem.web_url}} target="_blank">Read More</md-button>
+        <md-card-icon-actions>
+          <md-button class="md-icon-button" aria-label="toggle">
+            <md-icon md-svg-icon="md-toggle-arrow"></md-icon>
+          </md-button>
+        </md-card-icon-actions>
+      </md-card-actions>
+      <md-card-content>
+        <p class="blog-text">{{blogItem.snippet}}</p>
+      </md-card-content>
+    </md-card>
+  </div>
+</div>
+
+
+
+

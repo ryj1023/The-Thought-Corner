@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>The Thought Corner</title>
+    <link rel="stylesheet" href="the-thought-corner.1.0.0.css">
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css">
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="the-thought-corner.1.0.0.js"></script>
+    <script src="../js/blogDirective.js"></script>
+    <base href="/The-Thought-Corner/build/">
+  </head>
+  <body ng-app='app' ng-controller="ctrl as vm" ng-init='view= null'>
+    <div class=content-wrapper>
+    <section class="header">
+      <h1>{{vm.logo}}</h1>
+      <img class="thought-cloud" src="../thought-cloud.png">
+      <div class="header-list">
+        <div class="sign-in-wrapper">
+          <a class="header-button" id="sign-in" ng-mouseover="vm.signInShow = true" ng-mouseleave="vm.signInShow = false" id="sign-in-content" ng-click="view= null; vm.showGreeter = true;" href="/The-Thought-Corner/build/" ">Home</a>
+          <div class="dropdown-content" ng-class="{'show': vm.signInShow}" ng-mouseover="vm.signInShow = true" ng-mouseleave="vm.signInShow = false" >
+          </div>
+        </div>
+        <div class="explore-wrapper">
+          <button class="header-button" id="explore" ng-mouseover="vm.exploreShow = true" ng-mouseleave="vm.exploreShow = false">Explore</button>
+          <div class="dropdown-content" id='explore-content' ng-class="{'show': vm.exploreShow}" ng-mouseover="vm.exploreShow = true" ng-mouseleave="vm.exploreShow = false">
+            <a href="#" ng-click="view='editorsPicks'">Editors Picks</a>
+            <a href="#" ng-click="view='mostRecent'">Most Recent</a>
+          </div>
+        </div>
+        <a class="header-button" id="about" href="about" ng-click="vm.hideGreeter();">About</a>
+      </div>
+    </section>
+    <section class="container">
+      <div class="greeter">
+        <div ng-view class="view-container"></div>
+        <div class="greeter-wrapper" ng-show="vm.showGreeter">
+          <h1>{{vm.greeting}}</h1>
+          <h2>{{vm.subgreeting}}</h2>
+        </div>
+      </div>
+      <div class="quote-div">
+        <h1>"{{vm.object}}"</h1>
+        <h2>-{{vm.author}}</h2>
+      </div>
+      <div class=blog-wrapper>
+        <blog-content ng-if="view==null"></blog-content>
+        <blog-content type="mostRecent" ng-if="view=='mostRecent'" ></blog-content>
+        <blog-content search="custom" ng-if="view=='editorsPicks'"></blog-content>
+      </div>
+      <a class="page-links"ng-click="addMoreItems('1')">next page</a>
+      <a class="page-links" ng-click="addMoreItems('-1')" ng-show="page > 0">back</a>
+    </section>
+  </body>
+</html>
