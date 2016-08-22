@@ -5,38 +5,33 @@ body {
   background-color: black;
 }
 .header {
+  width: 100%;
+  position: fixed;
   background-color: #282828;
   color: black;
-  height: 50px;
-  padding: 6px 6px 5px 5px;
+  height: 47px;
+  padding: 0% 1% 1% 1%;
+  z-index: 1;
 }
 .header h1 {
-  font-size: 20px;
+  font-size: 16px;
   color: white;
-  font-family: 'Indie Flower', cursive;
   float: left;
   padding-top: 12px;
-}
-.header .thought-cloud {
-  height: 30px;
-  width: 30px;
-  float: left;
-  padding-top: 1px;
-  padding-left: 1px;
 }
 .header .header-list {
   display: inline;
   color: white;
   position: relative;
   float: right;
-  width: 70%;
+  width: 85%;
 }
 .header .header-button {
   float: right;
   margin-right: 15px;
   background-color: #282828;
   color: white;
-  padding-top: 16px;
+  padding-top: 25px;
   padding-bottom: 16px;
   padding-right: 70px;
   padding-left: 70px;
@@ -83,6 +78,29 @@ body {
 .header .dropdown-content.show a:hover {
   background-color: grey;
 }
+.header .search-bar {
+  padding-top: 8px;
+  padding-left: 20px;
+}
+.header #query {
+  width: 230px;
+}
+.header .search-button {
+  background-color: #555555;
+  border: none;
+  color: white;
+  padding: 3px 11px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.header .search-button:hover {
+  background-color: #ECECEC;
+  color: white;
+}
 .greeter {
   height: 400px;
   width: 100%;
@@ -95,30 +113,34 @@ body {
   font-size: 70px;
   color: white;
   text-align: center;
-  padding-top: 75px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  padding-top: 142px;
 }
 .greeter h2 {
   font-size: 22px;
   color: white;
   text-align: center;
   padding-top: 15px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-.quote-div {
-  height: 300px;
+.greeter .about-text {
+  font-size: 70px;
+  color: white;
+  text-align: center;
+  padding-top: 50px;
+}
+.quote {
+  height: 75px;
   width: 100%;
   background-color: white;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  padding: 30px 0;
 }
-.quote-div h1 {
+.quote h1 {
   font-family: 'Inconsolata', serif;
   font-size: 25px;
   color: black;
   text-align: center;
-  padding-top: 80px;
 }
-.quote-div h2 {
+.quote h2 {
   font-family: 'Inconsolata', serif;
   font-size: 15px;
   color: black;
@@ -128,6 +150,7 @@ body {
 .blog-wrapper {
   width: 100%;
   background-color: #ECECEC;
+  margin: -8px;
 }
 .blogs-div {
   height: 300px;
@@ -155,30 +178,51 @@ body {
   height: 55%;
 }
 .row div {
-  display: inline-block;
+  margin-top: auto;
+  display: block;
+}
+.row div .left-text-align {
+  text-align: left;
+  min-width: 500px;
+}
+.row div .right-text-align {
+  text-align: right;
+  min-width: 500px;
+}
+.row div .layout-row {
+  padding: 0 45px;
+}
+.row div .odd {
+  flex-direction: row-reverse;
+}
+.row div h2,
+.row div p {
+  margin: 10px;
 }
 .row div .card-wrapper {
   width: 50%;
 }
 .row div .md-card-image {
-  width: 90%;
-  height: 300px;
+  width: 40%;
+  height: 200px;
   padding-top: 6%;
 }
 .row div .md-button {
   color: blue;
 }
 .view-container {
+  margin-top: 0;
+  padding-top: 58px;
   font-family: 'Oswald', sans-serif;
-  height: 380px;
+  height: 342px;
   width: 90%;
-  margin-top: 20px;
   background-color: #3a3936;
   opacity: 0.8;
 }
 .view-container h1 {
   color: white;
   z-index: 1;
+  padding-top: 0;
 }
 .view-container p {
   color: white;
@@ -202,5 +246,21 @@ body {
   border: none;
   cursor: pointer;
   text-decoration: none;
+}
+.close-about {
+  float: right;
+  text-decoration: none;
+}
+#back-button {
+  float: left;
+}
+#next-button {
+  float: right;
+}
+.input-placeholder {
+  color: white;
+}
+md-input {
+  color: white;
 }
 /*# sourceMappingURL=the-thought-corner.1.0.0.css.map */

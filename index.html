@@ -14,10 +14,9 @@
     <base href="/The-Thought-Corner/build/">
   </head>
   <body ng-app='app' ng-controller="ctrl as vm" ng-init='view= null'>
-    <div class=content-wrapper>
+    <div class=content-wrapper id="myDIV">
     <section class="header">
       <h1>{{vm.logo}}</h1>
-      <img class="thought-cloud" src="../thought-cloud.png">
       <div class="header-list">
         <div class="sign-in-wrapper">
           <a class="header-button" id="sign-in" ng-mouseover="vm.signInShow = true" ng-mouseleave="vm.signInShow = false" id="sign-in-content" ng-click="view= null; vm.showGreeter = true;" href="/The-Thought-Corner/build/" ">Home</a>
@@ -32,6 +31,19 @@
           </div>
         </div>
         <a class="header-button" id="about" href="about" ng-click="vm.hideGreeter();">About</a>
+        <form class="search-bar" onsubmit="return false">
+					<!--input id="query" type="search" ng-model="vm.query" placeholder="search for articles"></input-->
+          <div>
+            <div layout="row">
+              <md-input-container>
+                <label class="input-placeholder">Search for articles</label>
+                <input class="input-placeholder" id="query" type="search" ng-model="vm.query" placeholder="search any topic" style="color:white;"></input>
+              </md-input-container>
+            </div>
+          </div>
+            <md-button class="md-raised" ng-click="vm.getBlogs(); view='search'">Search</md-button>
+						<!--button ng-click="vm.getBlogs(); view='search'">search</button-->
+        </form>
       </div>
     </section>
     <section class="container">
@@ -42,7 +54,7 @@
           <h2>{{vm.subgreeting}}</h2>
         </div>
       </div>
-      <div class="quote-div">
+      <div class="quote">
         <h1>"{{vm.object}}"</h1>
         <h2>-{{vm.author}}</h2>
       </div>
@@ -50,9 +62,10 @@
         <blog-content ng-if="view==null"></blog-content>
         <blog-content type="mostRecent" ng-if="view=='mostRecent'" ></blog-content>
         <blog-content search="custom" ng-if="view=='editorsPicks'"></blog-content>
+        <blog-content query='vm.query' ng-if="view=='search'"></blog-content>
       </div>
-      <a class="page-links"ng-click="addMoreItems('1')">next page</a>
-      <a class="page-links" ng-click="addMoreItems('-1')" ng-show="page > 0">back</a>
+        <md-button id="next-button" class="md-raised md-primary" ng-click="addMoreItems('1')">Next</md-button>
+        <md-button id="back-button" class="md-raised md-primary" ng-click="addMoreItems('-1')" ng-show="page > 0">Back</md-button>
     </section>
   </body>
 </html>

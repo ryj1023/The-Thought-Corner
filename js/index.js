@@ -44,6 +44,7 @@ app.controller('ctrl', function($scope, GetQuotes){
 	this.subgreeting = "a place where ideas are born and shared";
 	this.blogText = "test";
 	this.showGreeter = true;
+	this.query = "";
 
 		this.hideGreeter = function(){
 
@@ -56,7 +57,6 @@ app.controller('ctrl', function($scope, GetQuotes){
 	
 			ctrl2.object = response.quote;
 			ctrl2.author = response.author;
-			console.log(ctrl2.object, ctrl2.author);
 			$scope.$apply();
  			
  			});	
@@ -97,7 +97,11 @@ app.controller('ctrl', function($scope, GetQuotes){
 	app.service("Blogs", function($http){
 
 
-		this.getBlogs = function(type, search, page, callBack){
+		this.getBlogs = function(type, search, query, page, callBack){
+
+			console.log(query);
+
+			
 			let request = {
 			  'api-key': "a60ec845fb53482491767c88041a4e8b",
 			  'q': "technology, world, psychology, travel, love",
@@ -112,6 +116,14 @@ app.controller('ctrl', function($scope, GetQuotes){
 			else if(search == 'custom'){
 
 				request.q = "travel, football, economics";	
+			}
+
+			else if(query){
+
+				request.q = query;
+
+				console.log(query);
+
 			};
 
 

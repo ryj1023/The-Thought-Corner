@@ -48,7 +48,7 @@
 	
 	var $ = __webpack_require__(1);
 	var angular = __webpack_require__(2);
-	var ngMaterial = __webpack_require__(6);
+	var ngMaterial = __webpack_require__(4);
 	var ngRoute = __webpack_require__(10);
 	
 	// Main module
@@ -91,6 +91,7 @@
 		this.subgreeting = "a place where ideas are born and shared";
 		this.blogText = "test";
 		this.showGreeter = true;
+		this.query = "";
 	
 		this.hideGreeter = function () {
 	
@@ -103,7 +104,6 @@
 	
 			ctrl2.object = response.quote;
 			ctrl2.author = response.author;
-			console.log(ctrl2.object, ctrl2.author);
 			$scope.$apply();
 		});
 	
@@ -137,7 +137,10 @@
 	
 	app.service("Blogs", function ($http) {
 	
-		this.getBlogs = function (type, search, page, callBack) {
+		this.getBlogs = function (type, search, query, page, callBack) {
+	
+			console.log(query);
+	
 			var request = {
 				'api-key': "a60ec845fb53482491767c88041a4e8b",
 				'q': "technology, world, psychology, travel, love",
@@ -150,6 +153,11 @@
 			} else if (search == 'custom') {
 	
 				request.q = "travel, football, economics";
+			} else if (query) {
+	
+				request.q = query;
+	
+				console.log(query);
 			};
 	
 			var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
@@ -42030,12 +42038,30 @@
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
+	// Should already be required, here for clarity
+	__webpack_require__(2);
+	
+	// Load Angular and dependent libs
 	__webpack_require__(5);
-	module.exports = 'ngAnimate';
+	__webpack_require__(7);
+	
+	// Now load Angular Material
+	__webpack_require__(9);
+	
+	// Export namespace
+	module.exports = 'ngMaterial';
 
 
 /***/ },
 /* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(6);
+	module.exports = 'ngAnimate';
+
+
+/***/ },
+/* 6 */
 /***/ function(module, exports) {
 
 	/**
@@ -46177,24 +46203,6 @@
 	
 	
 	})(window, window.angular);
-
-
-/***/ },
-/* 6 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// Should already be required, here for clarity
-	__webpack_require__(2);
-	
-	// Load Angular and dependent libs
-	__webpack_require__(4);
-	__webpack_require__(7);
-	
-	// Now load Angular Material
-	__webpack_require__(9);
-	
-	// Export namespace
-	module.exports = 'ngMaterial';
 
 
 /***/ },
