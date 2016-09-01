@@ -68,6 +68,7 @@ body {
   background-color: #f9f9f9;
   width: 194px;
   top: 100%;
+  margin: 0;
 }
 .header .dropdown-content.show a {
   color: black;
@@ -251,11 +252,10 @@ body {
   float: right;
   text-decoration: none;
 }
-#back-button {
-  float: left;
-}
 #next-button {
-  float: right;
+  text-align: center;
+  margin-left: 41%;
+  padding: 0 1%;
 }
 .input-placeholder {
   color: white;

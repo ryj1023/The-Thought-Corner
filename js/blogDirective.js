@@ -30,9 +30,7 @@ angular.module('blogDirective', [])
 				
 			$rootScope.addMoreItems = function(order){
 
-     					window.scrollTo(0,0);
-					
-
+     					
 						if(!order){
 							order = 0;
 						}
@@ -49,10 +47,7 @@ angular.module('blogDirective', [])
 
 
 							var items = response.response.docs[i];
-
-							console.log(items);
 								
-
 							if(!items) continue 
 
 								var title = items.headline.main.split(";");
@@ -71,9 +66,17 @@ angular.module('blogDirective', [])
 
 								items.multimedia[0].url = "http://nytimes.com/" + items.multimedia[0].url;
 							}
-						}
 
-							$scope.blogs = response.response.docs;
+							console.log(items);
+
+							if(!$scope.blogs){
+
+								$scope.blogs = [];
+							}
+
+							$scope.blogs.push(items);
+						}
+							
 							$scope.$apply();
  				});
 
