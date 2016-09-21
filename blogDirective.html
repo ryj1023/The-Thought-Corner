@@ -1,42 +1,42 @@
 <div class="row">
-  <div class="card-wrapper" flex-xs flex-gt-xs="50" layout="column" ng-repeat="blogItem in blogs">
-    <md-card class="_md" ng-if="blogItem.index %  2 == 0">
-        <md-card-title>       
-         <md-card-title-text class="left-text-align">
-            <h2>{{blogItem.title}}</h2>
-            <p>{{blogItem.snippet}}</p>   
-          </md-card-title-text>
-          <md-card-title-media>
-            <div class="md-media-lg card-media">
-             <a class="md-card-image" href={{blogItem.web_url}} target="_blank" >
-              <img ng-src={{blogItem.multimedia[0].url}} on-error-src="../thought-image-url.png"/>
-            </a> 
-            </div> 
-          </md-card-title-media> 
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center">
-          <md-button href={{blogItem.web_url}} target="_blank">Read More</md-button>
-        </md-card-actions>
-      </md-card>
-      <md-card class="_md" ng-if="blogItem.index %  2 !== 0">
-        <md-card-title>       
-          <md-card-title-media>
-            <div class="md-media-lg card-media">
-             <a class="md-card-image" href={{blogItem.web_url}} target="_blank" >
-              <img ng-src={{blogItem.multimedia[0].url}} on-error-src="../thought-image-url.png"/>
-            </a> 
-            </div> 
-          </md-card-title-media> 
-          <md-card-title-text class="right-text-align">
-            <h2>{{blogItem.title}}</h2>
-            <p>{{blogItem.snippet}}</p>   
-          </md-card-title-text>
-        </md-card-title>
-        <md-card-actions layout="row" layout-align="end center" class="odd">
-          <md-button href={{blogItem.web_url}} target="_blank">Read More</md-button>
-        </md-card-actions>
-      </md-card>
-  </div>
+    <div class="card-wrapper" flex-xs flex-gt-xs="50" layout="column" ng-repeat="blogItem in blogs">
+      <md-card class="_md" ng-if="blogItem.index %  2 == 0">
+          <md-card-title>       
+           <md-card-title-text class="left-text-align">
+              <h2>{{blogItem.title}}</h2>
+              <p>{{blogItem.snippet}}</p>   
+            </md-card-title-text>
+            <md-card-title-media>
+              <div class="md-media-lg card-media">
+               <a class="md-card-image" href={{blogItem.web_url}} target="_blank" >
+                <img ng-src={{blogItem.multimedia[0].url}} on-error-src="../thought-image-url.png"/>
+              </a> 
+              </div> 
+            </md-card-title-media> 
+          </md-card-title>
+          <md-card-actions layout="row" layout-align="end center" width="100%">
+            <md-button href={{blogItem.web_url}} target="_blank">Read More</md-button>
+          </md-card-actions>
+        </md-card>
+        <md-card class="_md" ng-if="blogItem.index %  2 !== 0">
+          <md-card-title>       
+            <md-card-title-media>
+              <div class="md-media-lg card-media">
+               <a class="md-card-image" href={{blogItem.web_url}} target="_blank" >
+                <img ng-src={{blogItem.multimedia[0].url}} on-error-src="../thought-image-url.png"/>
+              </a> 
+              </div> 
+            </md-card-title-media> 
+            <md-card-title-text class="right-text-align">
+              <h2>{{blogItem.title}}</h2>
+              <p>{{blogItem.snippet}}</p>   
+            </md-card-title-text>
+          </md-card-title>
+          <md-card-actions layout="row" layout-align="end center" class="odd" width="100%">
+            <md-button href={{blogItem.web_url}} target="_blank">Read More</md-button>
+          </md-card-actions>
+        </md-card>
+    </div>
 </div>
 
 

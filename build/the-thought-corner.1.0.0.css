@@ -5,46 +5,49 @@ body {
   background-color: black;
 }
 .header {
+  min-height: 50px;
   width: 100%;
   position: fixed;
-  background-color: #282828;
-  color: black;
-  height: 47px;
+  background-color: #525252;
+  height: 50px;
   padding: 0% 1% 1% 1%;
   z-index: 1;
+}
+.header .logo {
+  cursor: pointer;
 }
 .header h1 {
   font-size: 16px;
   color: white;
   float: left;
-  padding-top: 12px;
+  padding-top: 2%;
+  padding-right: 3%;
 }
 .header .header-list {
   display: inline;
   color: white;
   position: relative;
   float: right;
-  width: 85%;
+  height: 130%;
 }
 .header .header-button {
   float: right;
-  margin-right: 15px;
-  background-color: #282828;
   color: white;
-  padding-top: 25px;
-  padding-bottom: 16px;
-  padding-right: 70px;
-  padding-left: 70px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
+}
+.header #about:hover {
+  background-color: #666666;
   text-decoration: none;
 }
 .header .sign-in-wrapper {
   float: right;
+  height: 12%;
 }
 .header .explore-wrapper {
   float: right;
+  height: 12%;
+}
+.header .input-placeholder {
+  height: 26px;
 }
 .header .dropdown-content {
   display: none;
@@ -79,12 +82,16 @@ body {
 .header .dropdown-content.show a:hover {
   background-color: grey;
 }
+.header .search-container {
+  width: 100%;
+  height: 10%;
+}
 .header .search-bar {
-  padding-top: 8px;
-  padding-left: 20px;
+  padding-top: 1%;
+  padding-left: 2%;
 }
 .header #query {
-  width: 230px;
+  width: 115%;
 }
 .header .search-button {
   background-color: #555555;
@@ -130,14 +137,15 @@ body {
 }
 .quote {
   height: 75px;
-  width: 100%;
+  width: 63.6%;
   background-color: white;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   padding: 30px 0;
+  margin-left: 18.2%;
 }
 .quote h1 {
   font-family: 'Inconsolata', serif;
-  font-size: 25px;
+  font-size: 20px;
   color: black;
   text-align: center;
 }
@@ -146,7 +154,7 @@ body {
   font-size: 15px;
   color: black;
   text-align: center;
-  padding-top: 15px;
+  padding-top: 1%;
 }
 .blog-wrapper {
   width: 100%;
@@ -191,7 +199,8 @@ body {
   min-width: 500px;
 }
 .row div .layout-row {
-  padding: 0 45px;
+  width: 100%;
+  padding: 0 9%;
 }
 .row div .odd {
   flex-direction: row-reverse;
@@ -215,7 +224,7 @@ body {
   margin-top: 0;
   padding-top: 58px;
   font-family: 'Oswald', sans-serif;
-  height: 342px;
+  height: 334px;
   width: 90%;
   background-color: #3a3936;
   opacity: 0.8;
@@ -260,7 +269,25 @@ body {
 .input-placeholder {
   color: white;
 }
+.md-button {
+  line-height: 100%;
+  margin: 1%;
+}
 md-input {
   color: white;
+}
+md-card-actions {
+  margin: 0 auto;
+  width: 100%;
+  padding: 10px 0px;
+}
+md-card md-card-title md-card-title-media .md-media-lg {
+  height: 100% !important;
+  width: 100% !important;
+}
+md-input-container {
+  margin: 6% 0 !important;
+  height: 80% !important;
+  padding: 1% 2% !important;
 }
 /*# sourceMappingURL=the-thought-corner.1.0.0.css.map */

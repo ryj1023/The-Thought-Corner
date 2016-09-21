@@ -14,57 +14,69 @@
     <base href="/The-Thought-Corner/build/">
   </head>
   <body ng-app='app' ng-controller="ctrl as vm" ng-init='view= null'>
-    <div class=content-wrapper id="myDIV">
-    <section class="header">
-      <h1>{{vm.logo}}</h1>
-      <div class="header-list">
-        <div class="sign-in-wrapper">
-          <a class="header-button" id="sign-in" ng-mouseover="vm.signInShow = true" ng-mouseleave="vm.signInShow = false" id="sign-in-content" ng-click="view= null; vm.showGreeter = true;" href="/The-Thought-Corner/build/" ">Home</a>
-          <div class="dropdown-content" ng-class="{'show': vm.signInShow}" ng-mouseover="vm.signInShow = true" ng-mouseleave="vm.signInShow = false" >
-          </div>
-        </div>
-        <div class="explore-wrapper">
-          <button class="header-button" id="explore" ng-mouseover="vm.exploreShow = true" ng-mouseleave="vm.exploreShow = false">Explore</button>
-          <div class="dropdown-content" id='explore-content' ng-class="{'show': vm.exploreShow}" ng-mouseover="vm.exploreShow = true" ng-mouseleave="vm.exploreShow = false">
-            <a href="#" ng-click="view='editorsPicks'">Editors Picks</a>
-            <a href="#" ng-click="view='mostRecent'">Most Recent</a>
-          </div>
-        </div>
-        <a class="header-button" id="about" href="about" ng-click="vm.hideGreeter();">About</a>
-        <form class="search-bar" onsubmit="return false">
-					<!--input id="query" type="search" ng-model="vm.query" placeholder="search for articles"></input-->
-          <div>
-            <div layout="row">
-              <md-input-container>
-                <label class="input-placeholder">Search for articles</label>
-                <input class="input-placeholder" id="query" type="search" ng-model="vm.query" placeholder="search any topic" style="color:white;"></input>
-              </md-input-container>
+    <div class=header-content-wrapper id="myDIV">
+      <section class="header">
+        <h1 class="logo" ng-click="vm.view= null;">{{vm.logo}}</h1>
+            <div class="header-list"> 
+              <div class="sign-in-wrapper">
+                <a class="header-button md-button" id="sign-in" id="sign-in-content" ng-click="vm.view= null; vm.showGreeter = true;" href="/The-Thought-Corner/build/" ">Home</a>
+                <div class="dropdown-content md-button" ng-class="{'show': vm.signInShow}" ng-mouseover="vm.signInShow = true" ng-mouseleave="vm.signInShow = false" >
+                </div>
+            </div>
+          <div class="explore-wrapper">
+            <md-menu>
+          <md-button aria-label="Open demo menu" class="md-button" ng-click="$mdOpenMenu($event)">
+            Explore
+          </md-button>
+          <md-menu-content width="6">
+            <md-menu-item>
+              <md-button ng-click="vm.view='editorsPicks'">
+                Editors Picks
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-click="vm.view='mostRecent'">
+                Most Recent
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
             </div>
           </div>
-            <md-button class="md-raised" ng-click="vm.getBlogs(); view='search'">Search</md-button>
-						<!--button ng-click="vm.getBlogs(); view='search'">search</button-->
-        </form>
-      </div>
-    </section>
-    <section class="container">
-      <div class="greeter">
-        <div ng-view class="view-container"></div>
-        <div class="greeter-wrapper" ng-show="vm.showGreeter">
-          <h1>{{vm.greeting}}</h1>
-          <h2>{{vm.subgreeting}}</h2>
+          <a class="header-button md-button" id="about" href="about" ng-click="vm.hideGreeter();">About</a>
+            <div class="search-container">
+              <form class="search-bar" onsubmit="return false">
+                    <div layout="row">
+                      <md-input-container ng-submit="vm.getBlogs()">
+                        <label class="input-placeholder">Search for articles</label>
+                        <input class="input-placeholder" id="query" type="search" ng-model="vm.query" placeholder="search any topic"  style="color:white;"></input>
+                      </md-input-container>
+                    </div>
+                  <md-button class="md-raised" ng-submit="vm.getBlogs()" ng-click="addMoreItems('0'); vm.view='search'">Search</md-button>
+              </form>
+             </div> 
         </div>
-      </div>
-      <div class="quote">
-        <h1>"{{vm.object}}"</h1>
-        <h2>-{{vm.author}}</h2>
-      </div>
-      <div class=blog-wrapper>
-        <blog-content ng-if="view==null"></blog-content>
-        <blog-content type="mostRecent" ng-if="view=='mostRecent'" ></blog-content>
-        <blog-content search="custom" ng-if="view=='editorsPicks'"></blog-content>
-        <blog-content query='vm.query' ng-if="view=='search'"></blog-content>
-      </div>
-        <md-button id="next-button" class="md-raised md-primary" ng-click="addMoreItems('1')">Load More Articles</md-button>
-    </section>
+      </section>
+      <section class="container">
+        <div class="greeter">
+          <div ng-view class="view-container"></div>
+          <div class="greeter-wrapper" ng-show="vm.showGreeter">
+            <h1>{{vm.greeting}}</h1>
+            <h2>{{vm.subgreeting}}</h2>
+          </div>
+        </div>
+        <div class=blog-wrapper>
+          <div class="quote">
+          <h1>"{{vm.object}}"</h1>
+          <h2>-{{vm.author}}</h2>
+        </div>      
+              <blog-content ng-if="vm.view==null"></blog-content>
+              <blog-content type="mostRecent" ng-if="vm.view=='mostRecent'" ></blog-content>
+              <blog-content search="custom" ng-if="vm.view=='editorsPicks'"></blog-content>
+              <blog-content id="searchDiv" query='vm.query' ng-if="vm.view=='search'"></blog-content>
+        </div>
+          <md-button id="next-button" class="md-raised md-primary" ng-click="addMoreItems('1')">Load More Articles</md-button>
+      </section>
+    </div>
   </body>
 </html>

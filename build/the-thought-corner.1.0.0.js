@@ -50,13 +50,10 @@
 	var angular = __webpack_require__(2);
 	var ngMaterial = __webpack_require__(4);
 	var ngRoute = __webpack_require__(10);
-	
+	var angularSpinners = __webpack_require__(12);
 	// Main module
-	
-	var app = angular.module('app', ['blogDirective', 'ngMaterial', 'ngRoute']);
-	
+	var app = angular.module('app', ['blogDirective', 'ngMaterial', 'ngRoute', 'angularSpinners']);
 	//Routes for main and about.html
-	
 	app.config(function ($routeProvider, $locationProvider) {
 		$routeProvider.when('/about', {
 			templateUrl: 'about.html',
@@ -64,12 +61,9 @@
 		}).otherwise({
 			redirectTo: '/'
 		});
-	
 		$locationProvider.html5Mode(true);
 	});
-	
 	//Binds default image to results which have none set
-	
 	app.directive('onErrorSrc', function () {
 		return {
 			link: function link(scope, element, attrs) {
@@ -81,44 +75,34 @@
 			}
 		};
 	});
-	
 	//Controller for Quote API, NYT API, show/hide routes
-	
 	app.controller('ctrl', function ($scope, GetQuotes) {
-	
 		this.logo = "The Thought Corner";
 		this.greeting = "Enhance Your Perspective";
 		this.subgreeting = "a place where ideas are born and shared";
 		this.blogText = "test";
 		this.showGreeter = true;
 		this.query = "";
-	
 		this.hideGreeter = function () {
-	
 			this.showGreeter = false;
 		};
-	
+		this.openMenu = function ($mdOpenMenu, ev) {
+			originatorEv = ev;
+			$mdOpenMenu(ev);
+		};
 		var ctrl2 = this;
-	
 		GetQuotes.getQuotes(function (response) {
-	
 			ctrl2.object = response.quote;
 			ctrl2.author = response.author;
 			$scope.$apply();
 		});
-	
 		this.signInShow = false;
 		this.exploreShow = false;
 	});
-	
 	//Service for Quotes
-	
 	app.service("GetQuotes", function ($http) {
-	
 		this.getQuotes = function (callBack) {
-	
 			$.ajax({
-	
 				url: 'https://andruxnet-random-famous-quotes.p.mashape.com/category=famous',
 				method: 'POST',
 				contentType: 'application/x-www-form-urlencoded',
@@ -127,39 +111,26 @@
 				accept: "application/json"
 	
 			}).done(function (data) {
-	
 				callBack(data);
 			});
 		};
 	});
-	
 	//Service for NYT articles
-	
 	app.service("Blogs", function ($http) {
-	
 		this.getBlogs = function (type, search, query, page, callBack) {
-	
-			console.log(query);
-	
 			var request = {
 				'api-key': "a60ec845fb53482491767c88041a4e8b",
 				'q': "technology, world, psychology, travel, love",
 				'page': page
 			};
-	
 			if (type == 'mostRecent') {
 				request.q = 'technology, world, psychology, travel, love';
 				request.sort = 'newest';
 			} else if (search == 'custom') {
-	
 				request.q = "travel, football, economics";
 			} else if (query) {
-	
 				request.q = query;
-	
-				console.log(query);
 			};
-	
 			var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 			url += '?' + $.param(request);
 			$.ajax({
@@ -78397,6 +78368,169 @@
 	
 	})(window, window.angular);
 
+
+/***/ },
+/* 12 */
+/***/ function(module, exports) {
+
+	/* commonjs package manager support (eg componentjs) */
+	if (typeof module !== "undefined" && typeof exports !== "undefined" && module.exports === exports){
+	  module.exports = 'angularSpinners';
+	}
+	
+	(function (window, angular, undefined) {
+	angular.module('angularSpinners', [])
+	  .factory('spinnerService', function () {
+	    var spinners = {};
+	    return {
+	      _register: function (data) {
+	        if (!data.hasOwnProperty('name')) {
+	          throw new Error("Spinner must specify a name when registering with the spinner service.");
+	        }
+	        spinners[data.name] = data;
+	      },
+	      _unregister: function (name) {
+	        if (spinners.hasOwnProperty(name)) {
+	          delete spinners[name];
+	        }
+	      },
+	      _unregisterGroup: function (group) {
+	        for (var name in spinners) {
+	          if (spinners[name].group === group) {
+	            delete spinners[name];
+	          }
+	        }
+	      },
+	      _unregisterAll: function () {
+	        for (var name in spinners) {
+	          delete spinners[name];
+	        }
+	      },
+	      show: function (name) {
+	        var spinner = spinners[name];
+	        if (!spinner) {
+	          throw new Error("No spinner named '" + name + "' is registered.");
+	        }
+	        spinner.show();
+	      },
+	      hide: function (name) {
+	        var spinner = spinners[name];
+	        if (!spinner) {
+	          throw new Error("No spinner named '" + name + "' is registered.");
+	        }
+	        spinner.hide();
+	      },
+	      showGroup: function (group) {
+	        var groupExists = false;
+	        for (var name in spinners) {
+	          var spinner = spinners[name];
+	          if (spinner.group === group) {
+	            spinner.show();
+	            groupExists = true;
+	          }
+	        }
+	        if (!groupExists) {
+	          throw new Error("No spinners found with group '" + group + "'.")
+	        }
+	      },
+	      hideGroup: function (group) {
+	        var groupExists = false;
+	        for (var name in spinners) {
+	          var spinner = spinners[name];
+	          if (spinner.group === group) {
+	            spinner.hide();
+	            groupExists = true;
+	          }
+	        }
+	        if (!groupExists) {
+	          throw new Error("No spinners found with group '" + group + "'.")
+	        }
+	      },
+	      showAll: function () {
+	        for (var name in spinners) {
+	          spinners[name].show();
+	        }
+	      },
+	      hideAll: function () {
+	        for (var name in spinners) {
+	          spinners[name].hide();
+	        }
+	      }
+	    };
+	  });
+	
+	angular.module('angularSpinners')
+	  .directive('spinner', function () {
+	    return {
+	      restrict: 'EA',
+	      replace: true,
+	      transclude: true,
+	      scope: {
+	        name: '@?',
+	        group: '@?',
+	        show: '=?',
+	        imgSrc: '@?',
+	        register: '@?',
+	        onLoaded: '&?',
+	        onShow: '&?',
+	        onHide: '&?'
+	      },
+	      template: [
+	        '<div ng-show="show">',
+	        '  <img ng-if="imgSrc" ng-src="{{imgSrc}}" />',
+	        '  <ng-transclude></ng-transclude>',
+	        '</div>'
+	      ].join(''),
+	      controller: ['$scope', 'spinnerService', function ($scope, spinnerService) {
+	
+	        // register should be true by default if not specified.
+	        if (!$scope.hasOwnProperty('register')) {
+	          $scope.register = true;
+	        } else {
+	          $scope.register = $scope.register.toLowerCase() === 'false' ? false : true;
+	        }
+	
+	        // Declare a mini-API to hand off to our service so the service
+	        // doesn't have a direct reference to this directive's scope.
+	        var api = {
+	          name: $scope.name,
+	          group: $scope.group,
+	          show: function () {
+	            $scope.show = true;
+	          },
+	          hide: function () {
+	            $scope.show = false;
+	          },
+	          toggle: function () {
+	            $scope.show = !$scope.show;
+	          }
+	        };
+	
+	        // Register this spinner with the spinner service.
+	        if ($scope.register === true) {
+	          spinnerService._register(api);
+	        }
+	
+	        // If an onShow or onHide expression was provided, register a watcher
+	        // that will fire the relevant expression when show's value changes.
+	        if ($scope.onShow || $scope.onHide) {
+	          $scope.$watch('show', function (show) {
+	            if (show && $scope.onShow) {
+	              $scope.onShow({ spinnerService: spinnerService, spinnerApi: api });
+	            } else if (!show && $scope.onHide) {
+	              $scope.onHide({ spinnerService: spinnerService, spinnerApi: api });
+	            }
+	          });
+	        }
+	
+	        // This spinner is good to go. Fire the onLoaded expression.
+	        if ($scope.onLoaded) {
+	          $scope.onLoaded({ spinnerService: spinnerService, spinnerApi: api });
+	        }
+	      }]
+	    };
+	  });
+	})(window, window.angular);
 
 /***/ }
 /******/ ]);
