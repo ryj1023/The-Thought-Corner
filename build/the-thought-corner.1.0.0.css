@@ -9,7 +9,7 @@ body {
   width: 100%;
   position: fixed;
   background-color: #525252;
-  height: 50px;
+  height: 52px;
   padding: 0% 1% 1% 1%;
   z-index: 1;
 }
@@ -196,7 +196,6 @@ body {
 }
 .row div .right-text-align {
   text-align: right;
-  min-width: 500px;
 }
 .row div .layout-row {
   width: 100%;
@@ -267,7 +266,8 @@ body {
   padding: 0 1%;
 }
 .input-placeholder {
-  color: white;
+  margin-top: 3%;
+  padding: 1%;
 }
 .md-button {
   line-height: 100%;
@@ -283,7 +283,7 @@ md-card-actions {
 }
 md-card md-card-title md-card-title-media .md-media-lg {
   height: 100% !important;
-  width: 100% !important;
+  width: 100%;
 }
 md-input-container {
   margin: 6% 0 !important;

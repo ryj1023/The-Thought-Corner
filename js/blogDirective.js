@@ -28,7 +28,7 @@ angular.module('blogDirective', [])
 						{
 							let items = response.response.docs[i];		
 							if(!items) continue 
-								var title = items.headline.main.split(";");
+								let title = items.headline.main.split(";");
 								items.index = i;
 								items.title = title[0];
 							if(items.multimedia == undefined || items.multimedia.length == 0){
