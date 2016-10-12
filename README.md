@@ -15,12 +15,13 @@ The Thought corner is for anybody that is interested in gaining knowledge about 
 In an age where we have information at our fingertips, this app provides a single stop for just about any users interest. The artcles pull from the "New York Times" API, so the articles will always be credible and vast. This platform is perfect for the user that wants to stay informed and would also just like to stay in touch with topics specific to their interests.
 
 <h1>UX</h1>
-
-The initial mobile wireframes can be seen below:
+This app is designed for the user to be able to freely scroll through articles with a mobile-first approach. The app is simple and easy to navigate, making it useful and user friendly.
 
 <h1>Initial Wireframes</h1>
 
-This app is designed for the user to be able to freely scroll through articles with a mobile-first approach. The app is simple and easy to navigate, making it useful and user friendly.
+The initial mobile wireframes can be seen below:
+
+
 
 <h1>Working Prototype</h1>
 
