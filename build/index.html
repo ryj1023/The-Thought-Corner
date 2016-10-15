@@ -48,10 +48,6 @@
               <form class="search-bar" onsubmit="return false">
                     <div layout="row">
                       <input class="input-placeholder" id="query" type="search" ng-model="vm.query" ng-submit="vm.getBlogs()" placeholder="search for articles"></input>
-                      <!--md-input-container ng-submit="vm.getBlogs()">
-                        <label class="input-placeholder">Search for articles</label>
-                        <input class="input-placeholder" id="query" type="search" ng-model="vm.query" placeholder="search any topic"  style="color:white;"></input>
-                      </md-input-container-->
                     </div>
                   <md-button class="md-raised" ng-submit="vm.getBlogs()" ng-click="addMoreItems('0'); vm.view='search'">Search</md-button>
               </form>
