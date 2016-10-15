@@ -4,6 +4,10 @@ Coustom article portfolio project
 
 <h1>Screenshots</h1>
 
+![Screenshot](https://github.com/ryj1023/The-Thought-Corner/blob/master/Screenshot1.png)
+![Screenshot](https://github.com/ryj1023/The-Thought-Corner/blob/master/Screenshot2.png)
+![Screenshot](https://github.com/ryj1023/The-Thought-Corner/blob/master/Screenshot3.png)
+
 
 
 <h1>Overview</h1>
@@ -17,15 +21,10 @@ In an age where we have information at our fingertips, this app provides a singl
 <h1>UX</h1>
 This app is designed for the user to be able to freely scroll through articles with a mobile-first approach. The app is simple and easy to navigate, making it useful and user friendly.
 
-<h1>Initial Wireframes</h1>
-
-The initial mobile wireframes can be seen below:
-
-
 
 <h1>Working Prototype</h1>
 
-You can access a working prototype of the app here:
+You can access a working prototype of the app here: https://ryj1023.github.io/The-Thought-Corner/build/
 
 <h1>Technical</h1>
 
