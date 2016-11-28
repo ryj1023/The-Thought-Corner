@@ -1,8 +1,12 @@
 <h1>The Thought Corner</h1>
 
-Coustom article portfolio project
+Custom article portfolio project
 
 <h1>Screenshots</h1>
+
+![Screenshot](https://github.com/ryj1023/The-Thought-Corner/blob/master/Screenshot1.png)
+![Screenshot](https://github.com/ryj1023/The-Thought-Corner/blob/master/Screenshot2.png)
+![Screenshot](https://github.com/ryj1023/The-Thought-Corner/blob/master/Screenshot3.png)
 
 
 
@@ -17,19 +21,14 @@ In an age where we have information at our fingertips, this app provides a singl
 <h1>UX</h1>
 This app is designed for the user to be able to freely scroll through articles with a mobile-first approach. The app is simple and easy to navigate, making it useful and user friendly.
 
-<h1>Initial Wireframes</h1>
-
-The initial mobile wireframes can be seen below:
-
-
 
 <h1>Working Prototype</h1>
 
-You can access a working prototype of the app here:
+You can access a working prototype of the app here: https://ryj1023.github.io/The-Thought-Corner/build/
 
 <h1>Technical</h1>
 
-The app is built using AngularJS for the front-end. The routes are all done in the front-end, and there are multiple views with a custom directive each display scenario. There are two API calls, one is used with a custom service and an AJAX call to obtain the quotes from the Random Famous Quotes API, and another custom service to onbtain the New York Times articles from the site's API on a conditional basis. Angular's ng-view is used based on what the user does. The default view is the homepage, which displays content based on pre-defined topics. When the user does a custom search, or selects another article content option, the ng-view is changed in response to the event and show the relative data. Angular Materials card feature is on of the dependencies used to display each article. A custom directive is returned to display the data. 
+The app is built using AngularJS for the front-end. The routes are all done in the front-end, and there are multiple views with a custom directive each display scenario. There are two API calls, one is used with a custom service and an AJAX call to obtain the quotes from the Random Famous Quotes API, and another custom service to onbtain the New York Times articles from the site's API on a conditional basis. Angular's ng-view is used based on what the user does. The default view is the homepage, which displays content based on pre-defined topics. When the user does a custom search, or selects another article content option, the ng-view is changed in response to the event and show the relative data. Angular Materials card feature is one of the dependencies used to display each article. A custom directive is returned to display the data. 
 
 <h1>Upcoming Features</h1>
 
