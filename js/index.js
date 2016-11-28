@@ -72,7 +72,7 @@ app.controller('ctrl', function($scope, GetQuotes){
 	app.service("Blogs", function($http){
 		this.getBlogs = function(type, search, query, page, callBack){			
 			let request = {
-			  'api-key': "a60ec845fb53482491767c88041a4e8b",
+			  'api-key': "7c6ace2488554fbfb60738bddaccfc21",
 			  'q': "technology, world, psychology, travel, love",
 			  'page': page
 			}
@@ -89,13 +89,18 @@ app.controller('ctrl', function($scope, GetQuotes){
 		let url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 			url += '?' + $.param(request);
 			$.ajax({
+			  dataType: "json",	
 			  url: url,
 			  method: 'GET',
-			}).done(function(result){
+			  xhrFields: {
+    			withCredentials: true
+  				}
+			})
+			.done(function(result){
 			  callBack(result);
-			}).fail(function(err) {
-			  throw err;
-			});
+				}).fail(function(err) {
+				  throw err;
+				});
 			};
 		});
 		
