@@ -119,7 +119,7 @@
 	app.service("Blogs", function ($http) {
 		this.getBlogs = function (type, search, query, page, callBack) {
 			var request = {
-				'api-key': "a60ec845fb53482491767c88041a4e8b",
+				'api-key': "7c6ace2488554fbfb60738bddaccfc21",
 				'q': "technology, world, psychology, travel, love",
 				'page': page
 			};
@@ -134,8 +134,12 @@
 			var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 			url += '?' + $.param(request);
 			$.ajax({
+				dataType: "json",
 				url: url,
-				method: 'GET'
+				method: 'GET',
+				xhrFields: {
+					withCredentials: true
+				}
 			}).done(function (result) {
 				callBack(result);
 			}).fail(function (err) {
