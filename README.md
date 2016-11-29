@@ -8,8 +8,6 @@ Custom article portfolio project
 ![Screenshot](https://github.com/ryj1023/The-Thought-Corner/blob/master/Screenshot2.png)
 ![Screenshot](https://github.com/ryj1023/The-Thought-Corner/blob/master/Screenshot3.png)
 
-
-
 <h1>Overview</h1>
 
 The Thought corner is for anybody that is interested in gaining knowledge about the latest cutting edge topics. Everything from what the latest on the stock market is, scientic studies about future technologies, and favorite football team is doing, all in one place. The default setting for the user is articles based on a variety of topics, with other options for most recent articles, and editors picks. The user can also do a custom search by keyword(s) to have the app display content orderd by most to least recent. Every time the user is on the front page of the app, there are different famous quotes that are displayed that give create a refreshing theme to their day. Each of the articles contains a thumbnail and short description to peak the readers interest. They then have the option to read more about the articles on the New York Times website. The page also contains an "About" seciton, which outlines the general goal and purpose for the app.
@@ -19,8 +17,8 @@ The Thought corner is for anybody that is interested in gaining knowledge about 
 In an age where we have information at our fingertips, this app provides a single stop for just about any users interest. The artcles pull from the "New York Times" API, so the articles will always be credible and vast. This platform is perfect for the user that wants to stay informed and would also just like to stay in touch with topics specific to their interests.
 
 <h1>UX</h1>
-This app is designed for the user to be able to freely scroll through articles with a mobile-first approach. The app is simple and easy to navigate, making it useful and user friendly.
 
+This app is designed for the user to be able to freely scroll through articles with a mobile-first approach. The app is simple and easy to navigate, making it useful and user friendly.
 
 <h1>Working Prototype</h1>
 

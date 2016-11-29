@@ -22,7 +22,7 @@ angular.module('blogDirective', [])
 							$rootScope.page = 0;
 						}
 					$rootScope.page += parseInt(order);
-					// NYT API callback function and image provider
+				// NYT API callback function and image provider
 				Blogs.getBlogs($attrs.type, $attrs.search, $scope.query, $rootScope.page, function(response){
 					for(let i = 0; i <=response.response.docs.length; i++)
 						{
