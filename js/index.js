@@ -16,7 +16,7 @@ let app = angular.module('app', ['blogDirective', 'ngMaterial', 'ngRoute', 'angu
 			})		
 			$locationProvider.html5Mode(true);		
 	});
-		//Binds default image to results which have none set
+	//Binds default image to results which have none set
 	app.directive('onErrorSrc', function() {
 	    return {
 	        link: function(scope, element, attrs) {
@@ -103,10 +103,3 @@ app.controller('ctrl', function($scope, GetQuotes){
 				});
 			};
 		});
-		
-
-
-
-
-
- 	
