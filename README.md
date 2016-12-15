@@ -26,10 +26,20 @@ This app is designed for the user to be able to freely scroll through articles w
 
 You can access a working prototype of the app here: https://ryj1023.github.io/The-Thought-Corner/build/
 
+<h1>Functionality</h1>
+
+*  Custom service and an AJAX call to obtain the quotes from *Mashape's* API.
+*  Custom service to obtain *The New York Times* articles from the site's API on a conditional basis.
+*  Home page which displays articles content based on default selected topics
+*  When the user does a custom search, or selects another article content option, the ng-view is changed in response to the event and show the relative data
+* A custom directive is returned to display the data. 
+
+
 <h1>Technical</h1>
 
-The app is built using AngularJS for the front-end. The routes are all done in the front-end, and there are multiple views with a custom directive each display scenario. There are two API calls, one is used with a custom service and an AJAX call to obtain the quotes from the Random Famous Quotes API, and another custom service to onbtain the New York Times articles from the site's API on a conditional basis. Angular's ng-view is used based on what the user does. The default view is the homepage, which displays content based on pre-defined topics. When the user does a custom search, or selects another article content option, the ng-view is changed in response to the event and show the relative data. Angular Materials card feature is one of the dependencies used to display each article. A custom directive is returned to display the data. 
+The app is built using AngularJS for the front-end. The routes are all done in the front-end, and there are multiple views with a custom directive each display scenario. Angular's ng-view is used based on what the user does. Angular Materials card feature is one of the dependencies used to display each article. 
 
 <h1>Upcoming Features</h1>
 
-Some of the upcoming features include user profiles with custom settings, using NodeJS, MongoDB, and ExpressJS. There will also be a blog section which allows the user to create a profile and publish their own work on any topic of their choosing. 
+* User profiles with custom settings, using NodeJS, MongoDB, and ExpressJS
+* A blog section which allows the user to create a profile and publish their own work on any topic of their choosing.
