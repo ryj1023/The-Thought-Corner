@@ -30,8 +30,8 @@ You can access a working prototype of the app here: https://ryj1023.github.io/Th
 
 *  Custom service and an AJAX call to obtain the quotes from *Mashape's* API.
 *  Custom service to obtain *The New York Times* articles from the site's API on a conditional basis.
-*  Home page which displays articles content based on default selected topics
-*  When the user does a custom search, or selects another article content option, the ng-view is changed in response to the event and show the relative data
+*  Home page which displays articles content based on default selected topics.
+*  When the user does a custom search, or selects another article content option, the ng-view is changed in response to the event and show the relative data.
 * A custom directive is returned to display the data. 
 
 
@@ -41,5 +41,5 @@ The app is built using AngularJS for the front-end. The routes are all done in t
 
 <h1>Upcoming Features</h1>
 
-* User profiles with custom settings, using NodeJS, MongoDB, and ExpressJS
+* User profiles with custom settings, using NodeJS, MongoDB, and ExpressJS.
 * A blog section which allows the user to create a profile and publish their own work on any topic of their choosing.
