@@ -92,9 +92,6 @@ app.controller('ctrl', function($scope, GetQuotes){
 			  dataType: "json",	
 			  url: url,
 			  method: 'GET',
-			  xhrFields: {
-    			withCredentials: true
-  				}
 			})
 			.done(function(result){
 			  callBack(result);

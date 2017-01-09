@@ -136,10 +136,7 @@
 			$.ajax({
 				dataType: "json",
 				url: url,
-				method: 'GET',
-				xhrFields: {
-					withCredentials: true
-				}
+				method: 'GET'
 			}).done(function (result) {
 				callBack(result);
 			}).fail(function (err) {
