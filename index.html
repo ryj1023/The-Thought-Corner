@@ -3,23 +3,23 @@
   <head>
     <meta charset="UTF-8">
     <title>The Thought Corner</title>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <script src="the-thought-corner.1.0.0.js"></script>
-    <script src="../js/blogDirective.js"></script>
-    <base href="/The-Thought-Corner/build/">
     <link rel="stylesheet" href="the-thought-corner.1.0.0.css">
     <link rel="stylesheet" href="../css/angular-material-css.css">
     <link href='https://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="the-thought-corner.1.0.0.js"></script>
+    <script src="../js/blogDirective.js"></script>
+    <base href="/projects/The-Thought-Corner/build/">
   </head>
-  <body ng-app='app' ng-controller="ctrl as vm" ng-init='view= null'>
+  <body ng-app='app' ng-controller="ctrl as vm">
     <div class=header-content-wrapper id="myDIV">
       <section class="header">
         <h1 class="logo" ng-click="vm.view= null;">{{vm.logo}}</h1>
             <div class="header-list"> 
               <div class="sign-in-wrapper">
-                <a class="header-button md-button" id="sign-in" id="sign-in-content" ng-click="vm.view= null; vm.showGreeter = true;" href="/The-Thought-Corner/build/" ">Home</a>
+                <a class="header-button md-button" id="sign-in" id="sign-in-content" ng-click="vm.view= null; vm.showGreeter = true;" href="/projects/The-Thought-Corner/build/" ">Home</a>
                 <div class="dropdown-content md-button" ng-class="{'show': vm.signInShow}" ng-mouseover="vm.signInShow = true" ng-mouseleave="vm.signInShow = false" >
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     <div layout="row">
                       <input class="input-placeholder" id="query" type="search" ng-model="vm.query" ng-submit="vm.getBlogs()" placeholder="search for articles"></input>
                     </div>
-                  <md-button class="md-raised" ng-submit="vm.getBlogs()" ng-click="addMoreItems('0'); vm.view='search'">Search</md-button>
+                  <md-button class="md-raised" ng-submit="vm.getBlogs();" ng-click="addMoreItems('0'); vm.view='search'">Search</md-button>
               </form>
              </div> 
         </div>

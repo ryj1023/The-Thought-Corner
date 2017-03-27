@@ -2,9 +2,9 @@ let $ = require('jquery');
 let angular = require('angular');
 let ngMaterial = require('angular-material');
 let ngRoute = require('angular-route');
-let angularSpinners = require('angular-spinners');
+//let angularSpinners = require('angular-spinners');
 	// Main module
-let app = angular.module('app', ['blogDirective', 'ngMaterial', 'ngRoute', 'angularSpinners']);
+let app = angular.module('app', ['blogDirective', 'ngMaterial', 'ngRoute']);
 	//Routes for main and about.html
 	app.config(function($routeProvider, $locationProvider){ 
 		$routeProvider.when('/about', {
@@ -36,6 +36,7 @@ app.controller('ctrl', function($scope, GetQuotes){
 	this.blogText = "test";
 	this.showGreeter = true;
 	this.query = "";
+	this.view = null;
 		this.hideGreeter = function(){
 			this.showGreeter = false;
 		}
@@ -91,11 +92,13 @@ app.controller('ctrl', function($scope, GetQuotes){
 			$.ajax({
 			  dataType: "json",	
 			  url: url,
-			  method: 'GET',
+			  method: 'GET'
 			})
 			.done(function(result){
 			  callBack(result);
+				console.log(result);
 				}).fail(function(err) {
+				alert('Whoops!, there is too much traffic. Wait a few seconds and search again')
 				  throw err;
 				});
 			};

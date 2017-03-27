@@ -1,15 +1,13 @@
-angular.module('blogDirective', [])
-.directive('blogContent', function(){
-	return{
-		restrict: 'E',
-		scope: {
-			type: '=',
-			search: '=',
-			query: '='
-			},
-		templateUrl: "blogDirective.html",
-			//Controller for article results
-		controller: function($rootScope, $scope, $attrs, Blogs){
+
+var display = {
+	bindings:{
+		type: '=',
+		search: '=',
+		query: '='
+	},
+	//Controller for article results
+	controller: function($rootScope, $scope, $attrs, Blogs){
+		let q = this;
 				$rootScope.page = 0;
 				//order for page number variable
 			$rootScope.addMoreItems = function(order){
@@ -23,7 +21,7 @@ angular.module('blogDirective', [])
 						}
 					$rootScope.page += parseInt(order);
 				// NYT API callback function and image provider
-				Blogs.getBlogs($attrs.type, $attrs.search, $scope.query, $rootScope.page, function(response){
+				Blogs.getBlogs($attrs.type, $attrs.search, q.query, $rootScope.page, function(response){
 					for(let i = 0; i <=response.response.docs.length; i++)
 						{
 							let items = response.response.docs[i];		
@@ -52,9 +50,10 @@ angular.module('blogDirective', [])
 				}
 			//first page call which sets page to 0
 			$rootScope.addMoreItems(0)
-		}
-	};
-});
+		},
+		templateUrl: "blogDirective.html"
+}
 
-
-
+angular.module('blogDirective', [])
+.component('blogContent', display)
+		
