@@ -21,7 +21,10 @@ var display = {
 						}
 					$rootScope.page += parseInt(order);
 				// NYT API callback function and image provider
-				Blogs.getBlogs($attrs.type, $attrs.search, q.query, $rootScope.page, function(response){
+				console.log(q.query)
+
+		}
+			Blogs.getBlogs($attrs.type, $attrs.search, q.query, $rootScope.page, $rootScope.toggle, function(response){
 					for(let i = 0; i <=response.response.docs.length; i++)
 						{
 							let items = response.response.docs[i];		
@@ -42,7 +45,6 @@ var display = {
 						}
 							$scope.$apply();
  				});
-			};
 			$scope.getRandomImage = function(){
 					let imageArray = ['../thought-image-url.png', '../news1.jpg', '../news2.jpg', '../news3.jpg', '../news4.png', '../news5.jpg'];
 						let image = imageArray[Math.floor(Math.random() * imageArray.length)]; 

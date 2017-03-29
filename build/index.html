@@ -13,10 +13,10 @@
     <script src="../js/blogDirective.js"></script>
     <base href="/projects/The-Thought-Corner/build/">
   </head>
-  <body ng-app='app' ng-controller="ctrl as vm">
+  <body ng-app='app' ng-controller="ctrl as vm" ng-init="vm.counter = 0">
     <div class=header-content-wrapper id="myDIV">
       <section class="header">
-        <h1 class="logo" ng-click="vm.view= null;">{{vm.logo}}</h1>
+        <h1 class="logo" ng-click="vm.view= null;" ng-cloak>{{vm.logo}}</h1>
             <div class="header-list"> 
               <div class="sign-in-wrapper">
                 <a class="header-button md-button" id="sign-in" id="sign-in-content" ng-click="vm.view= null; vm.showGreeter = true;" href="/projects/The-Thought-Corner/build/" ">Home</a>
@@ -47,9 +47,9 @@
             <div class="search-container">
               <form class="search-bar" onsubmit="return false">
                     <div layout="row">
-                      <input class="input-placeholder" id="query" type="search" ng-model="vm.query" ng-submit="vm.getBlogs()" placeholder="search for articles"></input>
+                      <input class="input-placeholder" id="query" type="search" ng-model="vm.query" ng-submit="vm.getBlogs();" placeholder="search for articles"></input>
                     </div>
-                  <md-button class="md-raised" ng-submit="vm.getBlogs();" ng-click="addMoreItems('0'); vm.view='search'">Search</md-button>
+                  <md-button class="md-raised" ng-click="addMoreItems('0');vm.view='search'">Search</md-button>
               </form>
              </div> 
         </div>
@@ -58,14 +58,14 @@
         <div class="greeter">
           <div ng-view class="view-container"></div>
           <div class="greeter-wrapper" ng-show="vm.showGreeter">
-            <h1>{{vm.greeting}}</h1>
-            <h2>{{vm.subgreeting}}</h2>
+            <h1 ng-cloak>{{vm.greeting}}</h1>
+            <h2 ng-cloak>{{vm.subgreeting}}</h2>
           </div>
         </div>
         <div class=blog-wrapper>
           <div class="quote">
-          <h1>"{{vm.object}}"</h1>
-          <h2>-{{vm.author}}</h2>
+          <h1 ng-cloak>"{{vm.object}}"</h1>
+          <h2 ng-cloak>-{{vm.author}}</h2>
         </div>      
               <blog-content ng-if="vm.view==null"></blog-content>
               <blog-content type="mostRecent" ng-if="vm.view=='mostRecent'" ></blog-content>

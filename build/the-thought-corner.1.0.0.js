@@ -76,7 +76,7 @@
 		};
 	});
 	//Controller for Quote API, NYT API, show/hide routes
-	app.controller('ctrl', function ($scope, GetQuotes) {
+	app.controller('ctrl', function ($rootScope, $scope, GetQuotes) {
 		this.logo = "The Thought Corner";
 		this.greeting = "Enhance Your Perspective";
 		this.subgreeting = "a place where ideas are born and shared";
@@ -84,6 +84,7 @@
 		this.showGreeter = true;
 		this.query = "";
 		this.view = null;
+		this.toggle = false;
 		this.hideGreeter = function () {
 			this.showGreeter = false;
 		};
@@ -118,7 +119,7 @@
 	});
 	//Service for NYT articles
 	app.service("Blogs", function ($http) {
-		this.getBlogs = function (type, search, query, page, callBack) {
+		this.getBlogs = function (type, search, query, page, toggle, callBack) {
 			var request = {
 				'api-key': "7c6ace2488554fbfb60738bddaccfc21",
 				'q': "technology, world, psychology, travel, love",
@@ -140,7 +141,6 @@
 				method: 'GET'
 			}).done(function (result) {
 				callBack(result);
-				console.log(result);
 			}).fail(function (err) {
 				alert('Whoops!, there is too much traffic. Wait a few seconds and search again');
 				throw err;
