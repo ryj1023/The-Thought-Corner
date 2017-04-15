@@ -11,6 +11,7 @@ var display = {
 				$rootScope.page = 0;
 				//order for page number variable
 			$rootScope.addMoreItems = function(order){
+	
 						if(!order){
 							order = 0;
 							$rootScope.page = 0;
@@ -21,10 +22,8 @@ var display = {
 						}
 					$rootScope.page += parseInt(order);
 				// NYT API callback function and image provider
-				console.log(q.query)
-
-		}
 			Blogs.getBlogs($attrs.type, $attrs.search, q.query, $rootScope.page, $rootScope.toggle, function(response){
+
 					for(let i = 0; i <=response.response.docs.length; i++)
 						{
 							let items = response.response.docs[i];		
@@ -43,15 +42,19 @@ var display = {
 							}
 							$scope.blogs.push(items);
 						}
+
 							$scope.$apply();
+
  				});
+
+		}
 			$scope.getRandomImage = function(){
 					let imageArray = ['../thought-image-url.png', '../news1.jpg', '../news2.jpg', '../news3.jpg', '../news4.png', '../news5.jpg'];
 						let image = imageArray[Math.floor(Math.random() * imageArray.length)]; 
 						return image;
 				}
 			//first page call which sets page to 0
-			$rootScope.addMoreItems(0)
+			setTimeout(function(){ $rootScope.addMoreItems(0) }, 1000);
 		},
 		templateUrl: "blogDirective.html"
 }

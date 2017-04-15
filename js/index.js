@@ -2,7 +2,6 @@ let $ = require('jquery');
 let angular = require('angular');
 let ngMaterial = require('angular-material');
 let ngRoute = require('angular-route');
-//let angularSpinners = require('angular-spinners');
 	// Main module
 let app = angular.module('app', ['blogDirective', 'ngMaterial', 'ngRoute']);
 	//Routes for main and about.html
@@ -72,7 +71,7 @@ app.controller('ctrl', function($rootScope, $scope, GetQuotes){
 	 });
 	//Service for NYT articles
 	app.service("Blogs", function($http){
-		this.getBlogs = function(type, search, query, page, toggle, callBack){			
+		this.getBlogs = function(type, search, query, page, toggle, callBack){	
 			let request = {
 			  'api-key': "7c6ace2488554fbfb60738bddaccfc21",
 			  'q': "technology, world, psychology, travel, love",

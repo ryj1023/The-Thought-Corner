@@ -50,7 +50,6 @@
 	var angular = __webpack_require__(2);
 	var ngMaterial = __webpack_require__(4);
 	var ngRoute = __webpack_require__(10);
-	//let angularSpinners = require('angular-spinners');
 	// Main module
 	var app = angular.module('app', ['blogDirective', 'ngMaterial', 'ngRoute']);
 	//Routes for main and about.html
